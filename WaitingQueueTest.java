@@ -31,7 +31,7 @@ public class WaitingQueueTest
     @Before
     public void setUp()
     {
-        Reservation res =  new Reservation();
+       res =  new Reservation();
     }
 
     
@@ -47,7 +47,7 @@ public class WaitingQueueTest
     }
     
     @Test
-    public voit testTocheckIftableAssignedtoUserWhenTableisAvailable(){
+    public void testTocheckIftableAssignedtoUserWhenTableisAvailable(){
         System.out.println("\n***Test 2: test To check If user is properly Assigned table When required Table is available ***");
         User user1 = new User("mary",123456789, 4);
         res.addUser(user1);
@@ -78,7 +78,7 @@ public class WaitingQueueTest
     }
     
     @Test
-    public voit testTocheckIftableAssignedtoUserWhenAllTablesAreOccupied(){
+    public void testTocheckIftableAssignedtoUserWhenAllTablesAreOccupied(){
         System.out.println("\n***Test 4: test To check If table Assigned to New User When All Tables Are Occupied***");
          User user1 = new User("mary",123456789, 4);
         res.addUser(user1);
@@ -98,7 +98,7 @@ public class WaitingQueueTest
     }
     
     @Test
-    public voit testTocheckIfUsersAreAddedToQueueOnFCFSBasis(){
+    public void testTocheckIfUsersAreAddedToQueueOnFCFSBasis(){
         System.out.println("\n***Test 5: test To check If Users Are Added To Queue On FCFS Basis***");
         User user1 = new User("mary",123456789, 4);
         res.addUser(user1);
@@ -120,7 +120,7 @@ public class WaitingQueueTest
     
     //check if user is assigned table when he confirms
     @Test
-    public voit testTocheckIfUserIsRemovedFromListAfterRejecting(){
+    public void testTocheckIfUserIsRemovedFromListAfterRejecting(){
         System.out.println("\n***Test 6: test To check if user is removed from list when he replies with 'leave' ***");
     // check if user is removed from list when he replies with "leave"
         User user1 = new User("mary",123456789, 4);
