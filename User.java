@@ -18,6 +18,7 @@ public class User
         this.name = name;
         this.phoneNo = phoneNo;
         this.noOfPeople =  noOfPeople;
+        this.id=-1;
     }
     
     public int getId(){

@@ -65,14 +65,31 @@ public class Reservation
             id = userlist.get(size - 1).getId();
         user.setId(id + 1);
         userlist.add(user);
-        assignTabletoUser();
+        assignTabletoUserifAvailable();
     }
+    //new
+    boolean checkIfUserisAssignedTable(User user)
+    {     
+          //check if user is assigned to table by checking tableid of user
+       int capacityReq = user.getNoOfPeople();
+            int foundTableId = getTableIdifTableAvailable(capacityReq);
+            if(foundTableId == -1 ){
+                System.out.println("Please wait! Table is not available");
+                return false;
+            }
+            else{
+            System.out.println("Table "+ foundTableId + " is successfully assigned to user "+ user.getName());
+            return true;
+            }
+        
+    }
+
     
-    public void assignTabletoUser(){
-            int size = userlist.size();
+    public void assignTabletoUserifAvailable(){
+        int size = userlist.size();
             User user = userlist.get(size - 1);
             int capacityReq = user.getNoOfPeople();
-            int foundTable = checkTableAvailable(capacityReq);
+            int foundTable = getTableIdifTableAvailable(capacityReq);
             if(foundTable == -1 ){
                 System.out.println("Please wait! Table is not available");
             }else
@@ -87,6 +104,7 @@ public class Reservation
                     id = 0;
                 else
                     id = reservations.get(resid - 1).getId();
+                    
                 res.setId(id + 1);
                 reservations.add(res);
                     userlist.remove(size - 1);
@@ -97,7 +115,7 @@ public class Reservation
         for (int i = 0; i < userlist.size(); i++) {
             User user = userlist.get(i);
             int capacityReq = user.getNoOfPeople();
-            int foundTable = checkTableAvailable(capacityReq);
+            int foundTable = getTableIdifTableAvailable(capacityReq);
             if(foundTable == -1 && type == 1){
                 System.out.println("Please wait! Table is not available");
             }else
@@ -120,7 +138,8 @@ public class Reservation
         }       
     }
     
-    public int checkTableAvailable(int capacity){
+    
+    public int getTableIdifTableAvailable(int capacity){
         
         for (int i = 0; i < tables.size(); i++) {
           if(tables.get(i).getAvail() == true && capacity <= tables.get(i).getCapacity())
@@ -129,6 +148,15 @@ public class Reservation
         return -1;
     }
     
+    //new
+    public boolean checktableAvailability(int capacity){
+        for (int i = 0; i < tables.size(); i++) {
+          if(tables.get(i).getAvail() == true && capacity <= tables.get(i).getCapacity())
+                return true;
+        }
+        return false;
+    }
+        
     public void usersLeft(int table){
        int index = - 1;
        for (int i = 0; i < reservations.size(); i++) {
