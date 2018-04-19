@@ -98,27 +98,34 @@ public class WaitingQueueTest
     }
     
     @Test
-    public void testTocheckIfUsersAreAddedToQueueOnFCFSBasis(){
-        System.out.println("\n***Test 5: test To check If Users Are Added To Queue On FCFS Basis***");
+    public void testTocheckIfUsersAreAssignedTableBasedOnPriorityndCapacity(){
+        System.out.println("\n***Test 5: test To check If Users Are assigned table based on prority as well as capacity***");
         User user1 = new User("mary",123456789, 4);
         res.addUser(user1);
         User user2 = new User("alex",123456789, 2);
         res.addUser(user2);        
         User user3 = new User("jay",123456789, 4);
         res.addUser(user3);        
-        User user4 = new User("kat",123456789, 4);
+        User user4 = new User("kat",123456789, 6);
         res.addUser(user4);        
         User user5 = new User("john",123456789, 6);
         res.addUser(user5);        
         User user6 = new User("tim",123456789, 2);
         res.addUser(user6);
-        User user7 = new User("lucy",123456789, 6);
+        User user7 = new User("lucy",123456789, 2);
         res.addUser(user7);
+        User user8 = new User("tina",123456780, 4);
+        res.addUser(user8);
+        
+        res.usersLeft(0);
+        res.sendConfirmation("Confirm");
+        assertEquals(true,res.checkIfUserisAssignedTable(user7));
+        
     }
     
-    //check when user leaves if first user in the list gets message for confirmation
+
     
-    //check if user is assigned table when he confirms
+    
     @Test
     public void testTocheckIfUserIsRemovedFromListAfterRejecting(){
         System.out.println("\n***Test 6: test To check if user is removed from list when he replies with 'leave' ***");
@@ -127,17 +134,24 @@ public class WaitingQueueTest
         res.addUser(user1);
         User user2 = new User("alex",123456789, 2);
         res.addUser(user2);        
-        User user3 = new User("jay",123456789, 4);
+        User user3 = new User("jay",123456789, 2);
         res.addUser(user3);        
         User user4 = new User("kat",123456789, 4);
         res.addUser(user4);        
         User user5 = new User("john",123456789, 6);
         res.addUser(user5);        
-        User user6 = new User("tim",123456789, 2);
+        User user6 = new User("tim",123456789, 6);
         res.addUser(user6);
         User user7 = new User("lucy",123456789, 6);
         res.addUser(user7);
-    
+        User user8 = new User("tina",123456780, 4);
+        res.addUser(user8);
+        
+        res.usersLeft(4);
+        res.sendConfirmation("leave");
+        assertEquals(res.userlist.size(),2);
+        
+        
 }
     /**
      * Tears down the test fixture.

@@ -19,6 +19,7 @@ comment16.params=table
 comment16.target=void\ usersLeft(int)
 comment17.params=capacity
 comment17.target=void\ askConfirmation(int)
+comment17.text=new\r\n\ \ \ \ public\ boolean\ checkIfConfirmationSent(User\ user){\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ userlist.size();\ i++)\ {\r\n\ \ \ \ \ \ \ \ \ \ if(\ \ userlist.get(i).getNoOfPeople()\ <\=\ capacity){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ userIndexIdForConf\ \=\ i;\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ }\r\n}\r\n}
 comment18.params=command
 comment18.target=void\ sendConfirmation(java.lang.String)
 comment19.params=

@@ -176,6 +176,15 @@ public class Reservation
        } 
     }
     
+    /*new
+    public boolean checkIfConfirmationSent(User user){
+        for (int i = 0; i < userlist.size(); i++) {
+          if(  userlist.get(i).getNoOfPeople() <= capacity){
+              userIndexIdForConf = i;
+        
+    }
+}
+}*/
     public void askConfirmation(int capacity){
        
        for (int i = 0; i < userlist.size(); i++) {
